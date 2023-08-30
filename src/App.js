@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Stock from './pages/Stock';
+import Home from './pages/Home';
+import AlteraPreco from './pages/AlteraPreco';
+import Vender from './pages/Vender';
+import Vendidos from './pages/Vendidos';
+import Comprar from './pages/Comprar'
+import TotalLucro from './pages/TotalLucro';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={< Home />} />
+          <Route path="/stock" element={< Stock />} />
+          <Route path="/altera_preco/:matricula" element={< AlteraPreco />}/>
+          <Route path="/vender_carro/:matricula" element={< Vender />}/>
+          <Route path="/vendidos" element={< Vendidos />} />
+          <Route path="/comprar" element={< Comprar />} />
+          <Route path="/total_lucro" element={< TotalLucro />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
